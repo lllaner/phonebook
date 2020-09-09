@@ -7,16 +7,12 @@ class Api::V1::TelephoneBooksController < Api::ApplicationController
     render json: @user.telephone_books
   end
 
-  def new
-    @telephone_book = TelephoneBook.new
-  end
-
   def create
-    @telephone_book = TelephoneBook.new(telephone_book_params)
+    @telephone_book = @user.telephone_books.new(telephone_book_params)
     if @telephone_book.save
       render json: @telephone_book
     else
-      render json: {error: 'Invalid data'}
+      render json: { error: 'Invalid data' }
     end
   end
 

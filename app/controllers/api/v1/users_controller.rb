@@ -7,9 +7,9 @@ class Api::V1::UsersController < Api::ApplicationController
     if @user.valid?
       payload = { user_id: @user.id }
       token = JWT.encode payload, nil, 'none', { typ: 'JWT' }
-      render json: {user: @user, token: token}
+      render json: { user: @user, token: token }
     else
-      render json: {error: "Invalid username or password"}
+      render json: { error: 'Invalid username or password' }
     end
   end
 
@@ -20,9 +20,9 @@ class Api::V1::UsersController < Api::ApplicationController
     if @user&.valid_password?(params[:password])
       payload = { user_id: @user.id }
       token = JWT.encode payload, nil, 'none', { typ: 'JWT' }
-      render json: {user: @user, token: token}
+      render json: { user: @user, token: token }
     else
-      render json: {error: "Invalid username or password"}
+      render json: { error: 'Invalid username or password' }
     end
   end
 
