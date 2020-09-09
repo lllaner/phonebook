@@ -1,0 +1,11 @@
+<%= form_with model: [@telephone_book], local: true do |form| %>
+  <%= render 'shared/errors', resource: @telephone_book %>
+  <div class="form-group">
+    <p>
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control'%>
+    </p>
+
+    <%= form.submit class: 'btn btn-success '%>
+  </div>
+<% end %>

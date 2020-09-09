@@ -1,0 +1,19 @@
+en:
+  activerecord:
+    models:
+      telephone_book: "Telephone book"
+      contact: "Contact"
+      user: "User"
+
+    attributes:
+      telephone_book:
+        title: "Title"
+      Contact:
+        phone: "Description"
+        name: "Correct"
+
+    errors:
+      messages:
+        blank: "can't be blank"
+        required: "must exist"
+        not_a_number: "not a number"
