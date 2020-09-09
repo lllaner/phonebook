@@ -1,0 +1,7 @@
+<h1> Contact</h1>
+
+<p class="h2 my-3">Name: <%= @contact.name %></p>
+<p class="h2 my-3">Phone: <%= @contact.phone %></p>
+
+<%= link_to 'Edit', edit_contact_path(@contact), class: 'btn btn-info' %>
+<%= link_to 'Back', telephone_book_path(@contact.telephone_book), class: 'btn btn-primary' %>

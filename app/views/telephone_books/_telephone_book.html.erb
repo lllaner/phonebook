@@ -1,0 +1,12 @@
+<tr class="text-center">
+  <td class="align-middle"><%= telephone_book.title %></td>
+  <td class="align-middle"><%= link_to t('.show'), telephone_book_path(telephone_book), class: 'btn btn-info'%></td>
+  <td class="align-middle"><%= link_to t('.edit'), edit_telephone_book_path(telephone_book), class: 'btn btn-primary'%></td>
+  <td class="align-middle">
+  <%= link_to t('.delete'),
+              telephone_book_path(telephone_book),
+              class: 'btn btn-danger',
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+  </td>
+</tr>

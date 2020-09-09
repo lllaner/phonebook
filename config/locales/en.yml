@@ -30,4 +30,23 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  contacts:
+    contact:
+      show: 'Show'
+      edit: 'Edit'
+      delete: 'delete'
+    edit:
+      title: Edit contact
+    new:
+      title: New contact
+      back: 'Back'
+  telephone_books:
+    index:
+      header: 'Telephone Books'
+    show:
+      new: 'New Contact'
+      back: 'Back'
+    telephone_book:
+      edit: 'Edit'
+      show: 'Show'
+      delete: 'Delete'

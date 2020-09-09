@@ -1,0 +1,11 @@
+<tr class="text-center">
+  <td class="align-middle"><%= contact.name %></td>
+  <td class="align-middle"><%= contact.phone %></td>
+  <td class="align-middle"><%= link_to t('.show'), contact_path(contact), class: 'btn btn-info' %></td>
+  <td class="align-middle"><%= link_to t('.edit'), edit_contact_path(contact), class: 'btn btn-primary' %></td>
+  <td class="align-middle"><%= link_to 'Delete',
+              contact_path(contact),
+              class: 'btn btn-danger',
+              method: :delete,
+              data:   { confirm: 'Are you sure?' }%></td>
+</tr>
