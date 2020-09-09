@@ -1,4 +1,4 @@
-class Api::V1::TestPassagesController < Api::ApplicationController
+class Api::V1::ContactsController < Api::ApplicationController
   skip_before_action :verify_authenticity_token
   def create
 
