@@ -14,7 +14,7 @@ class Api::V1::ContactsController < Api::ApplicationController
   end
 
   def update
-    if @contact.update
+    if @contact.update(contact_params)
       render json: @contact
     else
       render json: { error: 'Invalid data' }
