@@ -1,4 +1,4 @@
-class Api::V1::TelephoneBooksController < Api::ApplicationController
+class Api::V1::TelephoneBooksController < Api::V1::ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
