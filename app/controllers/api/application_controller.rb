@@ -1,5 +1,4 @@
 class Api::ApplicationController < ApplicationController
-  skip_before_action :verify_authenticity_token
   def authenticate_token
     decoded_token = JWT.decode params[:token], nil, false
     @user = User.find(decoded_token[0]['user_id'])

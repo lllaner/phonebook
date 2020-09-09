@@ -1,5 +1,6 @@
 class Api::V1::TelephoneBooksController < Api::ApplicationController
   skip_before_action :verify_authenticity_token
+
   before_action :authenticate_token
   before_action :find_telephone_book, only: %i[show destroy edit update import]
 

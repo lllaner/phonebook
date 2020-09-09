@@ -1,4 +1,6 @@
 class Api::V1::UsersController < Api::ApplicationController
+  skip_before_action :verify_authenticity_token
+
   # REGISTER
 
   def create
