@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
   before_action :find_telephone_book, only: %i[new create]
   before_action :find_contact, only: %i[destroy show edit update]
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_contact_not_found
 
   def new
     @contact = @telephone_book.contacts.new
@@ -29,6 +30,10 @@ class ContactsController < ApplicationController
   end
 
   private
+
+  def rescue_with_contact_not_found
+    render plain: 'Contact not found'
+  end
 
   def find_telephone_book
     @telephone_book = TelephoneBook.find(params[:telephone_book_id])

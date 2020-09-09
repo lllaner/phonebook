@@ -1,5 +1,6 @@
 class TelephoneBooksController < ApplicationController
   before_action :find_telephone_book, only: %i[show edit update destroy import]
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_telephone_book_not_found
 
   def index
     @telephone_books = TelephoneBook.all
@@ -28,15 +29,25 @@ class TelephoneBooksController < ApplicationController
 
   def destroy
     @telephone_book.destroy
-    redirect_to root_path
   end
 
   def import
-    @telephone_book.import(params[:file])
+    import_service = ImportService.new(params[:file], @telephone_book)
+    flash_options = if import_service.success?
+                      import_service.import
+                      { notice: 'Import completed success' }
+                    else
+                      { alert: import_service.errors }
+                    end
+    redirect_to telephone_book_path(@telephone_book), flash_options
   end
 
-
   private
+
+  def rescue_with_telephone_book_not_found
+    render plain: 'Telephone book not found'
+  end
+
 
   def find_telephone_book
     @telephone_book = TelephoneBook.find(params[:id])
