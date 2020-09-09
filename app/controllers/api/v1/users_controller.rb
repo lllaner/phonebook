@@ -17,7 +17,7 @@ class Api::V1::UsersController < Api::ApplicationController
   def login
     @user = User.find_by(email: params[:email])
 
-    if @user.valid_password?(params[:password])
+    if @user&.valid_password?(params[:password])
       payload = { user_id: @user.id }
       token = JWT.encode payload, nil, 'none', { typ: 'JWT' }
       render json: {user: @user, token: token}

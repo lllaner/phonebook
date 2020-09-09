@@ -35,11 +35,12 @@ end
 
 #DATABASE
 gem 'pg'
+
 # AUTH
 
 gem 'devise'
 gem 'dotenv-rails'
-
+gem 'jwt'
 # UI
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'

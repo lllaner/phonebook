@@ -8,8 +8,9 @@ class TelephoneBook < ApplicationRecord
   def import(file)
     CSV.foreach(file, headers: true) do |row|
       params = row.to_hash
-      if Contact.find_by(phone: params['phone'])
-        Contact.update(params)
+      contact = contacts.find_by(phone: params['phone'])
+      if contact
+        contact.update(params)
       else
         contacts.create(params)
       end
