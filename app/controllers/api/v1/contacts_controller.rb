@@ -13,6 +13,14 @@ class Api::V1::ContactsController < Api::ApplicationController
     end
   end
 
+  def update
+    if @contact.update
+      render json: @contact
+    else
+      render json: { error: 'Invalid data' }
+    end
+  end
+
   def show
     render json: @contact
   end
