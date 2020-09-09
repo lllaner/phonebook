@@ -46,6 +46,6 @@ class ImportService
     duplicate_contacts = csv_contacts.select { |row| csv_contacts['phone'].count(row['phone']) > 1 }
                                      .map { |contact| [contact['phone'], contact['name']] }
 
-    @errors << { 'Number duplicate in contact' => duplicate_contacts }
+    @errors << { 'Number duplicate in contacts' => duplicate_contacts } if duplicate_contacts.present?
   end
 end
