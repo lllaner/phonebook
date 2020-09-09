@@ -6,9 +6,12 @@ class TelephoneBook < ApplicationRecord
   validates :title, presence: true
 
   def import(file)
-    CSV.foreach(file, headers: true) do |row|
+    csv_contacts = CSV.read(file.path, headers: true)
+    Contact.where.not(phone: csv_contacts['phone']).destroy_all
+    csv_contacts.each do |row|
+      contact = Contact.find_by(phone: row['phone'])
       params = row.to_hash
-      contact = contacts.find_by(phone: params['phone'])
+
       if contact
         contact.update(params)
       else
