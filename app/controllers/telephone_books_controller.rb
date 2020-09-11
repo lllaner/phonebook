@@ -3,7 +3,7 @@ class TelephoneBooksController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_telephone_book_not_found
 
   def index
-    @telephone_books = TelephoneBook.all
+    @telephone_books = current_user.telephone_books
   end
 
   def new
