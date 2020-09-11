@@ -29,6 +29,7 @@ class TelephoneBooksController < ApplicationController
 
   def destroy
     @telephone_book.destroy
+    redirect_to root_path
   end
 
   def import

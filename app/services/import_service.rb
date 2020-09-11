@@ -13,14 +13,9 @@ class ImportService
   def success?
     return if @errors.any?
 
-    validate_duplicate
-    validate_attribute
+    return if validate_attribute.present?
 
-    if errors.present?
-      false
-    else
-      true
-    end
+    errors.empty?
   end
 
   def import
